@@ -11,10 +11,16 @@ export const voiceService = (() => {
             return console.warn('Voice detection is unavailable');
         }
 
+        annyang.addCallback('start', () => console.debug('voice recognition started'));
+        annyang.addCallback('end', () => console.warn('voice recognition ended'));
         annyang.addCommands(commands);
         annyang.start();
     }
 
-    return { whenSaid, start }
+    const getTriggers = () => {
+        return Object.keys(commands);
+    }
+
+    return { whenSaid, start, getTriggers }
 
 })();
