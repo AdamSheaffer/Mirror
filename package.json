@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
     "install": "^0.8.4",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
