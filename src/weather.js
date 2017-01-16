@@ -3,7 +3,7 @@ import { Forecast } from 'Forecast';
 import { WeatherConditions } from 'WeatherConditions';
 
 const API_KEY = CONSTANTS.WEATHER_API_KEY;
-const BASE_URL = `http://api.wunderground.com/api/${API_KEY}/`;
+const BASE_URL = `https://api.wunderground.com/api/${API_KEY}/`;
 const FORECAST_URL = `${BASE_URL}hourly/q/`;
 const CONDITIONS_URL = `${BASE_URL}conditions/q/`;
 
