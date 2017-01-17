@@ -12,7 +12,7 @@ var _Forecast = require('Forecast');
 var _WeatherConditions = require('WeatherConditions');
 
 var API_KEY = _constants.CONSTANTS.WEATHER_API_KEY;
-var BASE_URL = 'https://api.wunderground.com/api/' + API_KEY + '/';
+var BASE_URL = '//api.wunderground.com/api/' + API_KEY + '/';
 var FORECAST_URL = BASE_URL + 'hourly/q/';
 var CONDITIONS_URL = BASE_URL + 'conditions/q/';
 

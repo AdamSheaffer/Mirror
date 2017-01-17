@@ -1,7 +1,7 @@
 import { CONSTANTS } from 'constants';
 
-const ARTICLES_URL = 'https://newsapi.org/v1/articles';
-const SOURCES_URL = 'https://newsapi.org/v1/sources';
+const ARTICLES_URL = '//newsapi.org/v1/articles';
+const SOURCES_URL = '//newsapi.org/v1/sources';
 const defaultSrc = 'cnn';
 
 export const newsService = (() => {

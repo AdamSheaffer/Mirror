@@ -7,8 +7,8 @@ exports.newsService = undefined;
 
 var _constants = require('constants');
 
-var ARTICLES_URL = 'https://newsapi.org/v1/articles';
-var SOURCES_URL = 'https://newsapi.org/v1/sources';
+var ARTICLES_URL = '//newsapi.org/v1/articles';
+var SOURCES_URL = '//newsapi.org/v1/sources';
 var defaultSrc = 'cnn';
 
 var newsService = exports.newsService = function () {
