@@ -7,6 +7,7 @@ const compliments = [
     'You Are Beyonce Always.',
     'You Look Incredible',
     'Stunning!',
+    'Finer Than Frog\s Hair!',
     'Dayuuum!',
     'Best CPA Around!',
     'The Babe With The Power',

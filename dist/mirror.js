@@ -17,6 +17,15 @@ var _newsService = require('newsService');
 var clockComponent = $('#clock');
 var mainMessageComponent = $('#greeting');
 
+/********* GLOBAL *********/
+var hideAll = function hideAll() {
+    $('#mirror').fadeOut(500);
+};
+
+var showAll = function showAll() {
+    $('#mirror').fadeIn(500);
+};
+
 /********* WEATHER *********/
 var degreeChar = String.fromCharCode(176);
 

@@ -9,6 +9,15 @@ import { newsService } from 'newsService';
 const clockComponent = $('#clock');
 const mainMessageComponent = $('#greeting');
 
+/********* GLOBAL *********/
+const hideAll = () => {
+    $('#mirror').fadeOut(500);
+}
+
+const showAll = () => {
+    $('#mirror').fadeIn(500);
+}
+
 /********* WEATHER *********/
 const degreeChar = String.fromCharCode(176);
 
@@ -155,4 +164,6 @@ voiceService
     .whenSaid('Show me next', getNext)
     .whenSaid('Show me the news', returnToNews)
     .whenSaid('Show me news from *source', getNewsFrom)
+    .whenSaid('Hide All', hideAll)
+    .whenSaid('Show ALl', showAll)
     .start();
