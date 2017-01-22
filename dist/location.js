@@ -19,7 +19,7 @@ var Location = exports.Location = function () {
 
     _createClass(Location, [{
         key: 'getCoords',
-        value: function getCoords(onSuccess, onError) {
+        value: function getCoords(onSuccess) {
             var _this = this;
 
             if (this.hasGeoLocation) {
@@ -28,7 +28,11 @@ var Location = exports.Location = function () {
                     _this.lng = pos.coords.longitude;
                     onSuccess({ lat: _this.lat, lng: _this.lng });
                 }, function (err) {
-                    onError(err);
+                    // just use default if there is an error
+                    console.warn('Geolocation not found. Using default values');
+                    _this.lat = defaultLat;
+                    _this.lng = defaultLng;
+                    onSuccess({ lat: _this.lat, lng: _this.lng });
                 });
             } else {
                 console.warn('Geolocation not found. Using default values');

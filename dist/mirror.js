@@ -53,6 +53,10 @@ var setGreeting = function setGreeting() {
 };
 setGreeting();
 
+_greeting.greetingService.loopCompliments(600, function (comp) {
+    mainMessageComponent.text(comp);
+});
+
 /********* CLOCK *********/
 _clock.clock.init(function (now) {
     clockComponent.text(now.time);
@@ -126,6 +130,7 @@ var commandsEl = $('<ul></ul>');
 
 var showCommands = function showCommands() {
     mainMessageComponent.empty();
+    commandsEl.empty();
     _voiceService.voiceService.getTriggers().forEach(function (com) {
         if (com === 'Show me commands') return;
         commandsEl.append('<li class="command">' + com + '</li>');

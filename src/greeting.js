@@ -3,10 +3,14 @@ const compliments = [
     'Muy Caliente!',
     'You\'re absolutely gorgeous, and that\'s the least interesting thing about you',
     'Looking Great, Gorgeous!',
+    'OooOOooOoO Mami!',
     'You Are Beyonce Always.',
     'You Look Incredible',
     'Stunning!',
-    'Dayuuum!'
+    'Dayuuum!',
+    'Best CPA Around!',
+    'The Babe With The Power',
+    'Looking Good, Umami'
 ];
 
 export const greetingService = (() => {
@@ -25,7 +29,13 @@ export const greetingService = (() => {
         return compliments[randIx()];
     }
 
-    return { getCompliment }
+    const loopCompliments = (seconds, callback) => {
+        setInterval(() => {
+            callback(getCompliment())
+        }, seconds * 1000);
+    }
+
+    return { getCompliment, loopCompliments }
 
 })();
 

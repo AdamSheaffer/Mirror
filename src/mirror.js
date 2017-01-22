@@ -53,6 +53,10 @@ const setGreeting = () => {
 };
 setGreeting();
 
+greetingService.loopCompliments(600, (comp) => {
+    mainMessageComponent.text(comp);
+});
+
 /********* CLOCK *********/
 clock.init((now) => {
     clockComponent.text(now.time);
@@ -135,6 +139,7 @@ const commandsEl = $('<ul></ul>');
 
 const showCommands = () => {
     mainMessageComponent.empty();
+    commandsEl.empty();
     voiceService.getTriggers().forEach((com) => {
         if (com === 'Show me commands') return;
         commandsEl.append(`<li class="command">${com}</li>`);

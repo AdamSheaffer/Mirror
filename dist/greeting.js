@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var compliments = ['Confidence Looks Sexy On You.', 'Muy Caliente!', 'You\'re absolutely gorgeous, and that\'s the least interesting thing about you', 'Looking Great, Gorgeous!', 'You Are Beyonce Always.', 'You Look Incredible', 'Stunning!', 'Dayuuum!'];
+var compliments = ['Confidence Looks Sexy On You.', 'Muy Caliente!', 'You\'re absolutely gorgeous, and that\'s the least interesting thing about you', 'Looking Great, Gorgeous!', 'OooOOooOoO Mami!', 'You Are Beyonce Always.', 'You Look Incredible', 'Stunning!', 'Dayuuum!', 'Best CPA Around!', 'The Babe With The Power', 'Looking Good, Umami'];
 
 var greetingService = exports.greetingService = function () {
     var index = 0;
@@ -21,6 +21,12 @@ var greetingService = exports.greetingService = function () {
         return compliments[randIx()];
     };
 
-    return { getCompliment: getCompliment };
+    var loopCompliments = function loopCompliments(seconds, callback) {
+        setInterval(function () {
+            callback(getCompliment());
+        }, seconds * 1000);
+    };
+
+    return { getCompliment: getCompliment, loopCompliments: loopCompliments };
 }();
 //# sourceMappingURL=greeting.js.map
