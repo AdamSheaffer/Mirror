@@ -148,5 +148,5 @@ var showCommands = function showCommands() {
     setTimeout(setGreeting, 20000);
 };
 
-_voiceService.voiceService.whenSaid('Show me commands', showCommands).whenSaid('How do I look', setGreeting).whenSaid('Show me news sources', getNewsSources).whenSaid('Show me next', getNext).whenSaid('Show me the news', returnToNews).whenSaid('Show me news from *source', getNewsFrom).start();
+_voiceService.voiceService.whenSaid('Show me commands', showCommands).whenSaid('How do I look', setGreeting).whenSaid('Show me news sources', getNewsSources).whenSaid('Show me next', getNext).whenSaid('Show me the news', returnToNews).whenSaid('Show me news from *source', getNewsFrom).whenSaid('Hide All', hideAll).whenSaid('Show ALl', showAll).start();
 //# sourceMappingURL=mirror.js.map
