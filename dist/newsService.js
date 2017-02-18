@@ -12,6 +12,8 @@ var SOURCES_URL = '//newsapi.org/v1/sources';
 var defaultSrc = 'cnn';
 
 var newsService = exports.newsService = function () {
+    var carouselInterval = void 0;
+    var carouselCallback = void 0;
     var carouselIntervalId = void 0;
     var refreshIntervalId = void 0;
     var category = '';
@@ -20,6 +22,7 @@ var newsService = exports.newsService = function () {
     var allSources = null;
     var page = 0;
     var sourcesPerPage = 12;
+    var articleIndex = 0;
 
     var getArticles = function getArticles(onSuccess) {
         var xhr = new XMLHttpRequest();
@@ -62,13 +65,19 @@ var newsService = exports.newsService = function () {
     };
 
     var getArticleEveryNSeconds = function getArticleEveryNSeconds(seconds, callback) {
-        var articleIndex = 0;
-        callback(articles[articleIndex]);
-        articleIndex = articleIndex < articles.length ? articleIndex + 1 : 0;
+        carouselInterval = seconds;
+        carouselCallback = callback;
+        carouselCallback(articles[articleIndex]);
         carouselIntervalId = setInterval(function () {
-            callback(articles[articleIndex]);
             articleIndex = !!articles[articleIndex + 1] ? articleIndex + 1 : 0;
-        }, seconds * 1000);
+            carouselCallback(articles[articleIndex]);
+        }, 10 * 1000);
+    };
+
+    var getPreviousArticle = function getPreviousArticle() {
+        window.clearInterval(carouselIntervalId);
+        articleIndex = articleIndex !== 0 ? articleIndex - 1 : articles.length - 1;
+        getArticleEveryNSeconds(carouselInterval, carouselCallback);
     };
 
     var subscribe = function subscribe(seconds, refreshMinutes, callback) {
@@ -110,6 +119,7 @@ var newsService = exports.newsService = function () {
         changeSource: changeSource,
         getArticles: getArticles,
         getArticleEveryNSeconds: getArticleEveryNSeconds,
+        getPreviousArticle: getPreviousArticle,
         getSources: getSources,
         getNextPageSources: getNextPageSources,
         subscribe: subscribe,

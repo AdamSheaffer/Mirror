@@ -164,6 +164,7 @@ voiceService
     .whenSaid('Show me next', getNext)
     .whenSaid('Show me the news', returnToNews)
     .whenSaid('Show me news from *source', getNewsFrom)
+    .whenSaid('Go back', newsService.getPreviousArticle)
     .whenSaid('Hide all', hideAll)
     .whenSaid('Show all', showAll)
     .start();

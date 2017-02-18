@@ -1,5 +1,5 @@
 const compliments = [
-    'Confidence Looks Sexy On You.',
+    'Confidence Looks Sexy On You',
     'Muy Caliente!',
     'You\'re absolutely gorgeous, and that\'s the least interesting thing about you',
     'Looking Great, Gorgeous!',

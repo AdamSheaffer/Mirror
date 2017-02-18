@@ -5,6 +5,8 @@ const SOURCES_URL = '//newsapi.org/v1/sources';
 const defaultSrc = 'cnn';
 
 export const newsService = (() => {
+    let carouselInterval;
+    let carouselCallback;
     let carouselIntervalId;
     let refreshIntervalId;
     let category = '';
@@ -13,6 +15,7 @@ export const newsService = (() => {
     let allSources = null;
     let page = 0;
     let sourcesPerPage = 12;
+    let articleIndex = 0;
 
     const getArticles = (onSuccess) => {
         let xhr = new XMLHttpRequest();
@@ -55,13 +58,19 @@ export const newsService = (() => {
     }
 
     const getArticleEveryNSeconds = (seconds, callback) => {
-        let articleIndex = 0;
-        callback(articles[articleIndex]);
-        articleIndex = articleIndex < articles.length ? articleIndex + 1 : 0;
+        carouselInterval = seconds;
+        carouselCallback = callback;
+        carouselCallback(articles[articleIndex]);
         carouselIntervalId = setInterval(() => {
-            callback(articles[articleIndex]);
             articleIndex = !!articles[articleIndex + 1] ? articleIndex + 1 : 0;
-        }, seconds * 1000);
+            carouselCallback(articles[articleIndex]);
+        }, 10 * 1000);
+    }
+
+    const getPreviousArticle = () => {
+        window.clearInterval(carouselIntervalId);
+        articleIndex = articleIndex !== 0 ? articleIndex - 1 : articles.length - 1;
+        getArticleEveryNSeconds(carouselInterval, carouselCallback);
     }
 
     const subscribe = (seconds, refreshMinutes, callback) => {
@@ -103,6 +112,7 @@ export const newsService = (() => {
         changeSource,
         getArticles, 
         getArticleEveryNSeconds, 
+        getPreviousArticle,
         getSources, 
         getNextPageSources,
         subscribe,
