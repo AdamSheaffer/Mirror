@@ -137,7 +137,7 @@ const getNewsFrom = (source) => {
     showingArticles = true;
     newsService.unsubscribe();
     newsService.changeSource(source, () => {
-        newsService.subscribe(45, 45, renderNewsArticle);
+        newsService.subscribe(120, 45, renderNewsArticle);
     });
 }
 
