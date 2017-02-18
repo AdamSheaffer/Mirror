@@ -64,7 +64,7 @@ export const newsService = (() => {
         carouselIntervalId = setInterval(() => {
             articleIndex = !!articles[articleIndex + 1] ? articleIndex + 1 : 0;
             carouselCallback(articles[articleIndex]);
-        }, 10 * 1000);
+        }, carouselInterval * 1000);
     }
 
     const getPreviousArticle = () => {
