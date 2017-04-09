@@ -50,10 +50,18 @@ var onConditionsReady = function onConditionsReady(conditions) {
     targetEl.append(conditionsEl);
 };
 
+var onSunsetReady = function onSunsetReady(sunset) {
+    var targetEl = $('#sunset');
+    var sunsetEl = $('<div><img src="' + sunset.iconUrl + '" id="sunset-icon"><span class="sunset-message">' + sunset.message + '</span></div>');
+    targetEl.empty();
+    targetEl.append(sunsetEl);
+};
+
 var location = new _location.Location();
 location.getCoords(function (coords) {
     _weather.weatherService.subscribe('forecast', 900000, coords, onForecastReady);
     _weather.weatherService.subscribe('conditions', 1800000, coords, onConditionsReady);
+    _weather.weatherService.subscribe('sunset', 1800000, coords, onSunsetReady);
 });
 
 /********* GREETING *********/

@@ -11,10 +11,13 @@ var _Forecast = require('Forecast');
 
 var _WeatherConditions = require('WeatherConditions');
 
+var _SunSetting = require('SunSetting');
+
 var API_KEY = _constants.CONSTANTS.WEATHER_API_KEY;
 var BASE_URL = '//api.wunderground.com/api/' + API_KEY + '/';
 var FORECAST_URL = BASE_URL + 'hourly/q/';
 var CONDITIONS_URL = BASE_URL + 'conditions/q/';
+var ASTRONOMY_URL = BASE_URL + 'astronomy/q/';
 
 var weatherService = exports.weatherService = function () {
     var forecast = function forecast(coords, onSuccess) {
@@ -45,6 +48,27 @@ var weatherService = exports.weatherService = function () {
         xhr.send();
     };
 
+    var formatTime = function formatTime(hour, min) {
+        hour = hour > 12 ? hour - 12 : hour;
+        var h = hour < 10 ? '0' + hour : '' + hour;
+        var m = min < 10 ? '0' + min : '' + min;
+        return h + ':' + min;
+    };
+
+    var sunset = function sunset(coords, onSuccess) {
+        var url = '' + ASTRONOMY_URL + coords.lat + ',' + coords.lng + '.json';
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                var res = JSON.parse(xhr.responseText)['moon_phase'];
+                var sunSetting = new _SunSetting.SunSetting(res);
+                onSuccess(sunSetting);
+            }
+        };
+        xhr.send();
+    };
+
     var subscribe = function subscribe(method, timer, coords, cb) {
         if (!weatherService[method] || !weatherService[method].call) {
             return console.error('No weatherService method named' + method);
@@ -56,6 +80,6 @@ var weatherService = exports.weatherService = function () {
         }, timer);
     };
 
-    return { forecast: forecast, conditions: conditions, subscribe: subscribe };
+    return { forecast: forecast, conditions: conditions, subscribe: subscribe, sunset: sunset };
 }();
 //# sourceMappingURL=weather.js.map

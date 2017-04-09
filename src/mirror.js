@@ -50,10 +50,18 @@ const onConditionsReady = (conditions) => {
     targetEl.append(conditionsEl);
 }
 
+const onSunsetReady = (sunset) => {
+    let targetEl = $('#sunset');
+    let sunsetEl = $(`<div><img src="${sunset.iconUrl}" id="sunset-icon"><span class="sunset-message">${sunset.message}</span></div>`);
+    targetEl.empty();
+    targetEl.append(sunsetEl);
+}
+
 const location = new Location();
 location.getCoords((coords) => {
     weatherService.subscribe('forecast', 900000, coords, onForecastReady);
     weatherService.subscribe('conditions', 1800000, coords, onConditionsReady);
+    weatherService.subscribe('sunset', 1800000, coords, onSunsetReady);
 });
 
 /********* GREETING *********/

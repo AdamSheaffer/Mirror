@@ -32,6 +32,18 @@ body {
     margin: 10px 0;
 }
 
+#sunset-icon {
+    height: 60px;
+    display: inline-block;
+    margin-bottom: -20px;
+}
+
+.sunset-message {
+    display: inline-block;
+    height: 50px;
+    font-family: "Dosis", sans-serif;
+}
+
 .forecast .degree {
     font-size: 18px;
 }
