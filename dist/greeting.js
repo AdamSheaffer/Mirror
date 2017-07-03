@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var compliments = ['Confidence Looks Sexy On You', 'Muy Caliente!', 'You\'re absolutely gorgeous, and that\'s the least interesting thing about you', 'Looking Great, Gorgeous!', 'OooOOooOoO Mami!', 'You Are Beyonce Always.', 'You Look Incredible', 'Stunning!', 'Finer Than Frog\s Hair!', 'Dayuuum!', 'Best CPA Around!', 'The Babe With The Power', 'Looking Good, Umami'];
+var compliments = ['Confidence Looks Sexy On You', 'Muy Caliente!', 'You\'re absolutely gorgeous, and that\'s the least interesting thing about you', 'Looking Great, Gorgeous!', 'OooOOooOoO Mami!', 'You Are Beyonce Always.', 'You Look Incredible', 'Stunning!', 'Finer Than Frog\s Hair!', 'Dayuuum!', 'Best CPA Around!', 'The Babe With The Power', 'Looking Good, Umami', 'You wrote this yourself!'];
 
 var greetingService = exports.greetingService = function () {
     var index = 0;

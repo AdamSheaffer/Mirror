@@ -13,7 +13,8 @@ SystemJS.config({
         },
         'voiceService.js': {
             globals: {
-                annyang: '//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js'
+                annyang: '//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js',
+                SpeechKITT: '//cdnjs.cloudflare.com/ajax/libs/SpeechKITT/0.3.0/speechkitt.min.js'
             }
         }
     },

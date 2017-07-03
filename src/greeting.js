@@ -11,7 +11,8 @@ const compliments = [
     'Dayuuum!',
     'Best CPA Around!',
     'The Babe With The Power',
-    'Looking Good, Umami'
+    'Looking Good, Umami',
+    'You wrote this yourself!'
 ];
 
 export const greetingService = (() => {
