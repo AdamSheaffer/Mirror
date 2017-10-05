@@ -22,12 +22,12 @@ const showAll = () => {
 const degreeChar = String.fromCharCode(176);
 
 const createForecastHour = (forecast) => {
-    let el = `<div class="forecast hour">${forecast.hour}</div>` + 
-            `<img class="forecast icon" src="${forecast.icon}" />` +
-            `<div class="forecast temp">` +
-                `<span>${forecast.temp}</span>` +
-                `<span class="degree">${degreeChar}</span>` +
-            `</div>`;
+    let el = `<div class="forecast hour">${forecast.hour}</div>` +
+        `<img class="forecast icon" src="${forecast.icon}" />` +
+        `<div class="forecast temp">` +
+        `<span>${forecast.temp}</span>` +
+        `<span class="degree">${degreeChar}</span>` +
+        `</div>`;
     return el;
 }
 
@@ -43,9 +43,9 @@ const onForecastReady = (forecast) => {
 const onConditionsReady = (conditions) => {
     let targetEl = $('.current-temp');
     let conditionsEl = $(`<h5>${conditions.location}</h5>` +
-                        `<h1>${conditions.temp}${degreeChar}</h1>` +
-                        `<p>${conditions.weather}</p>` +
-                        `<img src="${conditions.icon}"/>`);
+        `<h1>${conditions.temp}${degreeChar}</h1>` +
+        `<p>${conditions.weather}</p>` +
+        `<img src="${conditions.icon}"/>`);
     targetEl.empty();
     targetEl.append(conditionsEl);
 }
@@ -99,21 +99,21 @@ const renderNewsArticle = (article) => {
 
     newsTargetEl.empty();
     let articleEl = $(`<div class="row">` +
-                        `<img class="thumbnail three columns" src="${article.urlToImage}" onerror="this.src='images/day/unknown.png'"/>` + 
-                        `<div class="seven columns">` +
-                            `<h5>${article.title}</h3>` +
-                            `<p>${article.description}</p>` +
-                        `</div>` +
-                        `<div id="qrcode" class="two columns"></div>` +
-                    `</div>`);
+        `<img class="thumbnail three columns" src="${article.urlToImage}" onerror="this.src='images/day/unknown.png'"/>` +
+        `<div class="seven columns">` +
+        `<h5>${article.title}</h3>` +
+        `<p>${article.description}</p>` +
+        `</div>` +
+        `<div id="qrcode" class="two columns"></div>` +
+        `</div>`);
     newsTargetEl.append(articleEl);
     renderQrCode(article);
 }
 
 const getNewsSourceEl = (source) => {
     return $(`<div class="three columns news-source">` +
-                `${source.name}` + 
-            `</div>`);
+        `${source.name}` +
+        `</div>`);
 }
 
 const renderNewsSourcesPage = (sources) => {
@@ -136,9 +136,9 @@ const getNext = () => {
 
 const returnToNews = () => {
     if (showingArticles) return;
-        showingArticles = true;
-        newsService.unsubscribe();
-        newsService.subscribe(45, 45, renderNewsArticle);
+    showingArticles = true;
+    newsService.unsubscribe();
+    newsService.subscribe(45, 45, renderNewsArticle);
 }
 
 const getNewsFrom = (source) => {
@@ -167,7 +167,7 @@ const showCommands = () => {
 
 voiceService
     .whenSaid('Show me commands', showCommands)
-    .whenSaid('How do I look', setGreeting)
+    .whenSaid('Hello Yoda', setGreeting)
     .whenSaid('Show me news sources', getNewsSources)
     .whenSaid('Show me next', getNext)
     .whenSaid('Show me the news', returnToNews)
