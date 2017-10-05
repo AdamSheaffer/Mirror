@@ -1,18 +1,9 @@
 const compliments = [
-    'Confidence Looks Sexy On You',
-    'Muy Caliente!',
-    'You\'re absolutely gorgeous, and that\'s the least interesting thing about you',
-    'Looking Great, Gorgeous!',
-    'OooOOooOoO Mami!',
-    'You Are Beyonce Always.',
-    'You Look Incredible',
-    'Stunning!',
-    'Finer Than Frog\s Hair!',
-    'Dayuuum!',
-    'Best CPA Around!',
-    'The Babe With The Power',
-    'Looking Good, Umami',
-    'You wrote this yourself!'
+    'Fear Is The Path To The Dark Side. Fear Leads To Anger. Anger Leads To Hate.',
+    'Try Not. Do. Or Do Not. There Is No Try.',
+    'Always Pass On What You Have Learned.',
+    'In A Dark Place We Find Ourselves, And A Little More Knowledge Lights Our Way.',
+    'You Will Know The Goood From The Bad When You Are Calm. At Peace. Passive.'
 ];
 
 export const greetingService = (() => {
