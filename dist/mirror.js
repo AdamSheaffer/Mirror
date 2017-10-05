@@ -156,5 +156,5 @@ var showCommands = function showCommands() {
     setTimeout(setGreeting, 20000);
 };
 
-_voiceService.voiceService.whenSaid('Show me commands', showCommands).whenSaid('How do I look', setGreeting).whenSaid('Show me news sources', getNewsSources).whenSaid('Show me next', getNext).whenSaid('Show me the news', returnToNews).whenSaid('Show me news from *source', getNewsFrom).whenSaid('Go back', _newsService.newsService.getPreviousArticle).whenSaid('Hide all', hideAll).whenSaid('Show all', showAll).start();
+_voiceService.voiceService.whenSaid('Show me commands', showCommands).whenSaid('Hello Yoda', setGreeting).whenSaid('Show me news sources', getNewsSources).whenSaid('Show me next', getNext).whenSaid('Show me the news', returnToNews).whenSaid('Show me news from *source', getNewsFrom).whenSaid('Go back', _newsService.newsService.getPreviousArticle).whenSaid('Hide all', hideAll).whenSaid('Show all', showAll).start();
 //# sourceMappingURL=mirror.js.map

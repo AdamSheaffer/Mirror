@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var compliments = ['Confidence Looks Sexy On You', 'Muy Caliente!', 'You\'re absolutely gorgeous, and that\'s the least interesting thing about you', 'Looking Great, Gorgeous!', 'OooOOooOoO Mami!', 'You Are Beyonce Always.', 'You Look Incredible', 'Stunning!', 'Finer Than Frog\s Hair!', 'Dayuuum!', 'Best CPA Around!', 'The Babe With The Power', 'Looking Good, Umami', 'You wrote this yourself!'];
+var compliments = ['Fear is the path to the Dark Side. Fear leads to anger. Anger leads to hate.', 'Try not. Do or do not. There is no try.', 'Always pass on what you have learned.', 'In a dark place we find ourselves, and a little more knowledge lights our way.', 'You will know the goood from the bad when you are calm. At peace. Passive.'];
 
 var greetingService = exports.greetingService = function () {
     var index = 0;

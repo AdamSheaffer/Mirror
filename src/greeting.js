@@ -1,9 +1,9 @@
 const compliments = [
-    'Fear Is The Path To The Dark Side. Fear Leads To Anger. Anger Leads To Hate.',
-    'Try Not. Do. Or Do Not. There Is No Try.',
-    'Always Pass On What You Have Learned.',
-    'In A Dark Place We Find Ourselves, And A Little More Knowledge Lights Our Way.',
-    'You Will Know The Goood From The Bad When You Are Calm. At Peace. Passive.'
+    'Fear is the path to the Dark Side. Fear leads to anger. Anger leads to hate.',
+    'Try not. Do or do not. There is no try.',
+    'Always pass on what you have learned.',
+    'In a dark place we find ourselves, and a little more knowledge lights our way.',
+    'You will know the goood from the bad when you are calm. At peace. Passive.'
 ];
 
 export const greetingService = (() => {
